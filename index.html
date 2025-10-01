@@ -128,6 +128,18 @@
                             class="block px-4 py-2 text-white rounded-md hover:bg-white/40 transition">Facebook</a>
                         </div>
                     </div>
+                    <script>
+                      // Toggle menu cho mobile
+                      const btn = document.getElementById('menuBtn');
+                      const menu = document.getElementById('dropdownMenu');
+                    
+                      btn.addEventListener('click', () => {
+                        menu.classList.toggle('hidden');
+                        menu.classList.toggle('opacity-100');
+                        menu.classList.toggle('pointer-events-auto');
+                        menu.classList.toggle('translate-y-0');
+                      });
+                    </script>
 
                     <!-- View CV button -->
                     <a href="cv.pdf" target="_blank"
