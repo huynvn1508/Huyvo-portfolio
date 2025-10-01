@@ -90,9 +90,46 @@
                     <a href="https://www.instagram.com/thehuyvoxnd/" class="btn-primary inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-md text-white bg-primary hover:bg-indigo-700">
                         Join me
                     </a>
-                    <a href="#" target="_blank" class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-full shadow-sm text-gray-700 bg-white hover:bg-gray-50">
-                        View CV (PDF)
-                    </a>
+                    <div class="relative inline-block group">
+                        <!-- Nút chính -->
+                        <button 
+                            class="relative inline-flex items-center px-6 py-3 text-base font-medium rounded-full shadow-2xl overflow-hidden transition duration-500 bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:scale-[1.03] hover:shadow-primary/50">
+                            View CV (PDF)
+                        </button>
+
+                        <!-- Menu ẩn, chỉ hiện khi hover -->
+                        <div 
+                            class="absolute top-0 w-44 left-full ml-2 
+                                    bg-white/30 dark:bg-gray-800/30 
+                                    backdrop-blur-md border border-white/20 dark:border-gray-700/40
+                                    rounded-lg shadow-lg 
+                                    opacity-0 group-hover:opacity-100 group-hover:translate-y-0 
+                                    transform -translate-y-2 
+                                    transition-all duration-200 
+                                    pointer-events-none group-hover:pointer-events-auto">
+                            
+                            <a href="cv.pdf" target="_blank" 
+                            class="block px-4 py-2 
+                                    text-white dark:text-white
+                                    rounded-md
+                                    hover:bg-white/40 dark:hover:bg-gray-700/40
+                                    transition">Xem Online</a>
+                            
+                            <a href="cv.pdf" download 
+                            class="block px-4 py-2 
+                                    text-white dark:text-white
+                                    rounded-md
+                                    hover:bg-white/40 dark:hover:bg-gray-700/40
+                                    transition">Tải xuống</a>
+                            
+                            <a href="mailto:youremail@example.com" 
+                            class="block px-4 py-2 
+                                    text-white dark:text-white
+                                    rounded-md
+                                    hover:bg-white/40 dark:hover:bg-gray-700/40
+                                    transition">Liên hệ</a>
+                        </div>
+                        </div>
                 </div>
             </div>
         </section>
@@ -261,5 +298,6 @@
     </script>
 </body>
 </html>
+
 
 
