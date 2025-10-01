@@ -76,72 +76,67 @@
         <section id="hero" class="relative text-center py-20 rounded-xl shadow-lg overflow-hidden">
             <div class="absolute inset-0 bg-[url('IMG_6423.JPG')] bg-cover bg-bottom blur-md"></div>
             <div class="absolute inset-0 bg-black/20"></div>
-            <div class="relative z-10 max-w-3xl mx-auto">
-                <!-- Sử dụng placeholder image có kích thước lớn hơn -->
-                <div class="relative w-32 h-32 mx-auto group">
+            <div class="relative z-10 max-w-3xl mx-auto text-center">
+    <!-- Avatar -->
+                <div class="relative w-28 h-28 mx-auto group -mt-7">
                     <div class="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
                         <div class="absolute w-1/2 h-full bg-white/50 blur-lg transition duration-500 ease-in-out opacity-0 
                                     group-hover:opacity-100 
                                     group-hover:translate-x-full 
-                                    -translate-x-full"
-                        ></div>
+                                    -translate-x-full"></div>
                     </div>
-
                     <img class="w-full h-full rounded-full object-cover border-4 border-primary shadow-lg transform transition duration-300 hover:scale-110 relative z-10" 
                         src="475944243_18347453074177392_566225510693746498_n.jpg" 
                         alt="Huy Vo Avatar">
                 </div>
-                <h1 class="text-5xl font-extrabold mt-6 text-dark-bg transform transition duration-300 hover:scale-110">
-                    <span class="text-primary text-white" >Võ Nguyên Huy</span>
+
+                <!-- Name -->
+                <h1 class="text-5xl font-extrabold mt-2 text-dark-bg transform transition duration-300 hover:scale-110">
+                    <span class="text-white">Võ Nguyên Huy</span>
                 </h1>
-                <p class="mt-4 text-xl text-white transition-transform transition-colors duration-300 hover:scale-110 hover:text-blue-600">
+
+                <!-- Description -->
+                <p class="mt-2 text-xl text-white transition duration-300 hover:scale-110 hover:text-blue-600">
                     Hanoi University of Science and Technology.
                 </p>
-                <div class="relative inline-block group">
-                    <button class="relative inline-flex items-center px-6 py-3 text-base font-medium rounded-full shadow-2xl overflow-hidden transition duration-500 bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:scale-[1.03] hover:shadow-primary/50">
-                        Join me
-                    </button>
-                    <!-- Menu ẩn, chỉ hiện khi hover -->
-                    <div 
-                        class="absolute top-0 w-44 right-full mr-2 
-                                bg-white/30 dark:bg-gray-800/30 
-                                backdrop-blur-md border border-white/20 dark:border-gray-700/40
-                                rounded-lg shadow-lg 
-                                opacity-0 group-hover:opacity-100 group-hover:translate-y-0 
-                                transform -translate-y-2 
-                                transition-all duration-200 
-                                pointer-events-none group-hover:pointer-events-auto">
-                        
-                        <a href="https://www.instagram.com/thehuyvoxnd/" 
-                        class="block px-4 py-2 
-                                text-white dark:text-white
-                                rounded-md
-                                hover:bg-white/40 dark:hover:bg-gray-700/40
-                                transition">Instagram</a>
-                        
-                        <a href="https://www.tiktok.com/@photobyhuyvox?is_from_webapp=1&sender_device=pc"
-                        class="block px-4 py-2 
-                                text-white dark:text-white
-                                rounded-md
-                                hover:bg-white/40 dark:hover:bg-gray-700/40
-                                transition">Tiktok</a>
-                        
-                        <a href="https://www.facebook.com/huytech15?locale=vi_VN" 
-                        class="block px-4 py-2 
-                                text-white dark:text-white
-                                rounded-md
-                                hover:bg-white/40 dark:hover:bg-gray-700/40
-                                transition">Facebook</a>
+
+                <!-- Buttons -->
+                <div class="mt-6 flex justify-center space-x-4">
+                    <!-- Join me button with menu -->
+                    <div class="relative inline-block group">
+                        <button class="relative inline-flex items-center px-6 py-3 text-base font-medium rounded-full shadow-2xl overflow-hidden transition duration-500 bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:scale-[1.03] hover:shadow-primary/50">
+                            Join me
+                        </button>
+
+                        <!-- Dropdown -->
+                        <div class="absolute top-0 right-full mr-2  w-44 
+                                    bg-white/30 dark:bg-gray-800/30 
+                                    backdrop-blur-md border border-white/20 dark:border-gray-700/40
+                                    rounded-lg shadow-lg 
+                                    opacity-0 group-hover:opacity-100 
+                                    transform -translate-y-2 group-hover:translate-y-0
+                                    transition-all duration-200 
+                                    pointer-events-none group-hover:pointer-events-auto">
+                            
+                            <a href="https://www.instagram.com/thehuyvoxnd/" 
+                            class="block px-4 py-2 text-white rounded-md hover:bg-white/40 transition">Instagram</a>
+                            
+                            <a href="https://www.tiktok.com/@photobyhuyvox?is_from_webapp=1&sender_device=pc"
+                            class="block px-4 py-2 text-white rounded-md hover:bg-white/40 transition">Tiktok</a>
+                            
+                            <a href="https://www.facebook.com/huytech15?locale=vi_VN" 
+                            class="block px-4 py-2 text-white rounded-md hover:bg-white/40 transition">Facebook</a>
+                        </div>
                     </div>
-                    </div>
-                    <!-- Nút chính -->
+
+                    <!-- View CV button -->
                     <a href="cv.pdf" target="_blank"
-                        class="relative inline-flex items-center px-6 py-3 text-base font-medium rounded-full shadow-2xl overflow-hidden transition duration-500 bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:scale-[1.03] hover:shadow-primary/50">
+                    class="relative inline-flex items-center px-6 py-3 text-base font-medium rounded-full shadow-2xl overflow-hidden transition duration-500 bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:scale-[1.03] hover:shadow-primary/50">
                         View CV (PDF)
                     </a>
-
                 </div>
             </div>
+
         </section>
 
         <!-- Phần 2: Về Tôi (About Section) -->
