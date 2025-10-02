@@ -48,7 +48,7 @@
         }
     </style>
 </head>
-<body class="font-sans antialiased bg-gray-100 text-gray-800 dark:bg-dark-bg dark:text-white">
+<body class="font-sans antialiased round-xl bg-gray-100 text-gray-800 dark:bg-dark-bg dark:text-gray-100 transition-colors duration-500">
 
     <!-- Thanh Điều Hướng (Navigation Bar) -->
     <nav class="bg-white shadow-lg sticky top-0 z-50">
@@ -101,52 +101,86 @@
                 </p>
 
                 <!-- Buttons -->
-                <div class="mt-6 flex justify-center space-x-4">
-                    <!-- Join me button with menu -->
-                    <div class="relative inline-block group">
-                        <button id="Joinme" class="relative inline-flex items-center px-6 py-3 text-base font-medium rounded-full shadow-2xl overflow-hidden transition duration-500 bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:scale-[1.03] hover:shadow-primary/50">
-                            Join me
-                        </button>
+                <div class="flex justify-center space-x-4 items-center mt-6">
+                    <!-- Nút Join me -->
+                    <button id="menuBtn" 
+                            class="px-6 py-2 
+                                    bg-white/30 dark:bg-gray-800/30 
+                                    backdrop-blur-md border border-white/20 dark:border-gray-700/40
+                                    rounded-full shadow-md text-white 
+                                    transition-all duration-300 ease-in-out hover:bg-white/50">
+                        Join me
+                    </button>
 
-                        <!-- Dropdown -->
-                        <div id="dropdownMenu"
-                            class="absolute top-0 right-full mr-2  w-44 
-                                        bg-white/30 dark:bg-gray-800/30 
-                                        backdrop-blur-md border border-white/20 dark:border-gray-700/40
-                                        rounded-lg shadow-lg 
-                                        hidden opacity-0 
-                                        transform -translate-y-2
-                                        transition-all duration-200">
-                                
-                                <a href="https://www.instagram.com/thehuyvoxnd/" 
-                                class="block px-4 py-2 text-white rounded-md hover:bg-white/40 transition">Instagram</a>
-                                
-                                <a href="https://www.tiktok.com/@photobyhuyvox?is_from_webapp=1&sender_device=pc"
-                                class="block px-4 py-2 text-white rounded-md hover:bg-white/40 transition">Tiktok</a>
-                                
-                                <a href="https://www.facebook.com/huytech15?locale=vi_VN" 
-                                class="block px-4 py-2 text-white rounded-md hover:bg-white/40 transition">Facebook</a>
-                        </div>
+                    <!-- Nút View CV -->
+                    <a id="cvBtn" href="#" 
+                    class="whitespace-nowrap px-6 py-2 
+                            bg-white/30 dark:bg-gray-800/30 
+                            backdrop-blur-md border border-white/20 dark:border-gray-700/40
+                            rounded-full shadow-md text-white 
+                            transition hover:bg-white/50">
+                    View CV
+                    </a>
+
+                    <!-- Danh sách thay thế nút Join me -->
+                    <div id="dropdownMenu" 
+                        class="absolute center transform translate mt-4
+                                flex flex-wrap justify-center gap-3
+                                opacity-0 scale-95 pointer-events-none
+                                transition-all duration-300 ease-in-out">
+
+                    <a href="https://www.instagram.com/thehuyvoxnd/" 
+                        class="whitespace-nowrap px-6 py-2 bg-white/30 backdrop-blur-md border border-white/20 
+                                rounded-full shadow-md hover:bg-white/40 transition">
+                        Instagram
+                    </a>
+
+                    <a href="https://www.tiktok.com/@photobyhuyvox?is_from_webapp=1&sender_device=pc"
+                        class="whitespace-nowrap px-6 py-2 bg-white/30 backdrop-blur-md border border-white/20 
+                                rounded-full shadow-md hover:bg-white/40 transition">
+                        Tiktok
+                    </a>
+
+                    <a href="https://www.facebook.com/huytech15?locale=vi_VN"
+                        class="whitespace-nowrap px-6 py-2 bg-white/30 backdrop-blur-md border border-white/20 
+                                rounded-full shadow-md hover:bg-white/40 transition">
+                        Facebook
+                    </a>
                     </div>
 
-                    <script>
-                      // Toggle menu cho mobile
-                      const btn = document.getElementById('Joinme');
-                      const menu = document.getElementById('dropdownMenu');
-                    
-                      btn.addEventListener('click', () => {
-                        menu.classList.toggle('hidden');
-                        menu.classList.toggle('opacity-100');
-                        menu.classList.toggle('pointer-events-auto');
-                        menu.classList.toggle('translate-y-0');
-                      });
-                    </script>
 
-                    <!-- View CV button -->
-                    <a href="cv.pdf" target="_blank"
-                    class="relative inline-flex items-center px-6 py-3 text-base font-medium rounded-full shadow-2xl overflow-hidden transition duration-500 bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:scale-[1.03] hover:shadow-primary/50">
-                        View CV (PDF)
-                    </a>
+                    <script>
+                        const btn = document.getElementById('menuBtn');
+                        const cvBtn = document.getElementById('cvBtn');
+                        const menu = document.getElementById('dropdownMenu');
+
+                        btn.addEventListener('click', (e) => {
+                            e.stopPropagation();
+
+                            // Toggle menu
+                            menu.classList.toggle('opacity-0');
+                            menu.classList.toggle('scale-95');
+                            menu.classList.toggle('pointer-events-none');
+
+                            // Ẩn/hiện Join me & CV
+                            btn.classList.toggle('opacity-0');
+                            btn.classList.toggle('scale-95');
+                            btn.classList.toggle('pointer-events-none');
+
+                            cvBtn.classList.toggle('opacity-0');
+                            cvBtn.classList.toggle('scale-95');
+                            cvBtn.classList.toggle('pointer-events-none');
+                        });
+
+                        // Ấn ra ngoài thì đóng menu
+                        document.addEventListener('click', (e) => {
+                            if (!menu.contains(e.target) && !btn.contains(e.target) && !cvBtn.contains(e.target)) {
+                            menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                            btn.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                            cvBtn.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                            }
+                        });
+                    </script>
                 </div>
             </div>
 
@@ -154,16 +188,16 @@
 
         <!-- Phần 2: Về Tôi (About Section) -->
         <section id="about" class="py-12">
-            <h2 class="text-3xl font-bold text-dark-bg border-b-4 border-secondary pb-2 mb-8 inline-block">
+            <h2 class="text-3xl font-bold text-dark-bg border-b-4 border-secondary pb-2 mb-8 inline-block dark:text-gray-100">
                 Introduction
             </h2>
             <div class="bg-white p-8 rounded-xl shadow-lg transition duration-500 bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:scale-[1.03] hover:shadow-primary/50">
-                <p class="text-lg text-gray-600 mb-4">
+                <p class="text-lg text-gray-600 mb-4 dark:text-gray-100">
                     My name is Huy, and I am currently pursuing a Master’s degree in Materials Science at Hanoi University of Science and Technology. 
                     I hold a Bachelor’s degree in Engineering Physics, which provided me with a strong foundation in applied physics and semiconductor technology. 
                     This background has not only strengthened my academic knowledge but also shaped my interest in exploring advanced materials and their applications.
                 </p>
-                <p class="text-lg text-gray-600">
+                <p class="text-lg text-gray-600 dark:text-gray-100">
                     I believe that my diverse academic background, combined with my passion for learning and problem-solving, makes me a strong candidate for roles in research and development, particularly in areas related to materials science and engineering.
                 </p>
             </div>
@@ -171,47 +205,47 @@
 
         <!-- Phần 3: Kỹ Năng (Skills Section) -->
         <section id="skills" class="py-12">
-            <h2 class="text-3xl font-bold text-dark-bg border-b-4 border-secondary pb-2 mb-8 inline-block">
+            <h2 class="text-3xl font-bold text-dark-bg border-b-4 border-secondary pb-2 mb-8 inline-block dark:text-gray-100">
                 Skills
             </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 dark:text-gray-100">
                 <!-- Kỹ năng 1: Python -->
                 <div class="bg-white p-6 rounded-xl shadow-md text-center transition duration-500 bg-white/10 backdrop-blur-sm border border-white/30 text-black hover:scale-[1.03] hover:shadow-primary/50">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                     </svg>
-                    <p class="font-semibold text-lg">Python</p>
+                    <p class="font-semibold text-lg dark:text-gray-100">Python</p>
                 </div>
                 <!-- Kỹ năng 2: Frontend -->
                 <div class="bg-white p-6 rounded-xl shadow-md text-center transition duration-500 bg-white/10 backdrop-blur-sm border border-white/30 text-black hover:scale-[1.03] hover:shadow-primary/50">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-secondary mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z" />
                     </svg>
-                    <p class="font-semibold text-lg">Mathematic simulation</p>
-                    <p class="text-sm text-gray-500">Monte Carlo, Finite Element Method</p>
+                    <p class="font-semibold text-lg dark:text-gray-100">Mathematic simulation</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-300">Monte Carlo, Finite Element Method</p>
                 </div>
                 <!-- Kỹ năng 3: Database -->
                 <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-xl transition duration-500 bg-white/10 backdrop-blur-sm border border-white/30 text-black hover:scale-[1.03] hover:shadow-primary/50">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
                     </svg>
-                    <p class="font-semibold text-lg">Theoretical Physics</p>
-                    <p class="text-sm text-gray-500">Quantum Mechanics, Statistical Mechanics</p>
+                    <p class="font-semibold text-lg dark:text-gray-100">Theoretical Physics</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-300">Quantum Mechanics, Statistical Mechanics</p>
                 </div>
                 <!-- Kỹ năng 4: Deployment -->
                 <div class="bg-white p-6 rounded-xl shadow-md text-center transition duration-500 bg-white/10 backdrop-blur-sm border border-white/30 text-black hover:scale-[1.03] hover:shadow-primary/50">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-secondary mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802" />
                     </svg>
-                    <p class="font-semibold text-lg">English</p>
-                    <p class="text-sm text-gray-500">B2</p>
+                    <p class="font-semibold text-lg dark:text-gray-100">English</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-300">B2</p>
                 </div>
             </div>
         </section>
 
         <!-- Phần 4: Dự Án (Projects Section) -->
         <section id="projects" class="py-12">
-            <h2 class="text-3xl font-bold text-dark-bg border-b-4 border-primary pb-2 mb-8 inline-block">
+            <h2 class="text-3xl font-bold text-dark-bg border-b-4 border-primary pb-2 mb-8 inline-block dark:text-gray-100">
                 Personal Projects
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -252,7 +286,7 @@
 
         <!-- Phần 5: Liên Hệ (Contact Section) -->
         <section id="contact" class="py-12">
-            <h2 class="text-3xl font-bold text-dark-bg border-b-4 border-secondary pb-2 mb-8 inline-block">
+            <h2 class="text-3xl font-bold text-dark-bg border-b-4 border-secondary pb-2 mb-8 inline-block dark:text-gray-100">
                 Contact me
             </h2>
             <div class="bg-white p-8 rounded-xl shadow-lg">
@@ -349,6 +383,3 @@
     </script>
 </body>
 </html>
-
-
-
