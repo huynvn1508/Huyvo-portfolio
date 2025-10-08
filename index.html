@@ -113,14 +113,67 @@
                     </button>
 
                     <!-- Nút View CV -->
-                    <a id="cvBtn" href="#" 
+                    <button id="cvBtn" 
                     class="whitespace-nowrap px-6 py-2 
                             bg-white/30 dark:bg-gray-800/30 
                             backdrop-blur-md border border-white/20 dark:border-gray-700/40
                             rounded-full shadow-md text-white 
                             transition hover:bg-white/50">
                     View CV
+                    </button>
+                    <!-- Danh sách thay thế nút View CV -->
+                    <div id="dropdownCV" 
+                        class="absolute center transform translate mt-4
+                                flex flex-wrap justify-center gap-3
+                                opacity-0 scale-95 pointer-events-none
+                                transition-all duration-300 ease-in-out">
+
+                    <a href="VSSCM 2 - 2024 Certificate_Nguyen Vo Nguyen Huy.png"  target="_blank"
+                        class="whitespace-nowrap px-6 py-2 bg-white/30 backdrop-blur-md border border-white/20 
+                                rounded-full text-white shadow-md hover:bg-white/40 transition">
+                        VSSCM-2
                     </a>
+
+                    <a href="Nguyen Vo Nguyen Huy_VSAIQC_Certificate.pdf" target="_blank"
+                        class="whitespace-nowrap px-6 py-2 bg-white/30 backdrop-blur-md border border-white/20 
+                                rounded-full text-white shadow-md hover:bg-white/40 transition">
+                        VSAIQC-2025
+                    </a>
+                    </div>
+
+
+                    <script>
+                        const btn1 = document.getElementById('cvBtn');
+                        const cvBtn1 = document.getElementById('menuBtn');
+                        const menu1 = document.getElementById('dropdownCV');
+
+                        btn1.addEventListener('click', (e) => {
+                            e.stopPropagation();
+
+                            // Toggle menu
+                            menu1.classList.toggle('opacity-0');
+                            menu1.classList.toggle('scale-95');
+                            menu1.classList.toggle('pointer-events-none');
+
+                            // Ẩn/hiện Join me & CV
+                            btn1.classList.toggle('opacity-0');
+                            btn1.classList.toggle('scale-95');
+                            btn1.classList.toggle('pointer-events-none');
+
+                            cvBtn1.classList.toggle('opacity-0');
+                            cvBtn1.classList.toggle('scale-95');
+                            cvBtn1.classList.toggle('pointer-events-none');
+                        });
+
+                        // Ấn ra ngoài thì đóng menu
+                        document.addEventListener('click', (e) => {
+                            if (!menu1.contains(e.target) && !btn1.contains(e.target) && !cvBtn1.contains(e.target)) {
+                            menu1.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                            btn1.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                            cvBtn1.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                            }
+                        });
+                    </script>
 
                     <!-- Danh sách thay thế nút Join me -->
                     <div id="dropdownMenu" 
@@ -209,14 +262,16 @@
                 Skills
             </h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 dark:text-gray-100">
-                <!-- Kỹ năng 1: Python -->
+                <!-- Kỹ năng 1 -->
                 <div class="bg-white p-6 rounded-xl shadow-md text-center transition duration-500 bg-white/10 backdrop-blur-sm border border-white/30 text-black hover:scale-[1.03] hover:shadow-primary/50">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                     </svg>
-                    <p class="font-semibold text-lg dark:text-gray-100">Python</p>
+                    <a href="https://www.python.org/" target="_blank"
+                        class="font-semibold text-lg dark:text-gray-100">
+                        Python</a>
                 </div>
-                <!-- Kỹ năng 2: Frontend -->
+                <!-- Kỹ năng 2 -->
                 <div class="bg-white p-6 rounded-xl shadow-md text-center transition duration-500 bg-white/10 backdrop-blur-sm border border-white/30 text-black hover:scale-[1.03] hover:shadow-primary/50">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-secondary mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z" />
@@ -224,7 +279,7 @@
                     <p class="font-semibold text-lg dark:text-gray-100">Mathematic simulation</p>
                     <p class="text-sm text-gray-500 dark:text-gray-300">Monte Carlo, Finite Element Method</p>
                 </div>
-                <!-- Kỹ năng 3: Database -->
+                <!-- Kỹ năng 3 -->
                 <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-xl transition duration-500 bg-white/10 backdrop-blur-sm border border-white/30 text-black hover:scale-[1.03] hover:shadow-primary/50">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
@@ -232,7 +287,7 @@
                     <p class="font-semibold text-lg dark:text-gray-100">Theoretical Physics</p>
                     <p class="text-sm text-gray-500 dark:text-gray-300">Quantum Mechanics, Statistical Mechanics</p>
                 </div>
-                <!-- Kỹ năng 4: Deployment -->
+                <!-- Kỹ năng 4 -->
                 <div class="bg-white p-6 rounded-xl shadow-md text-center transition duration-500 bg-white/10 backdrop-blur-sm border border-white/30 text-black hover:scale-[1.03] hover:shadow-primary/50">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-secondary mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802" />
@@ -255,7 +310,7 @@
                     <p class="text-gray-600 mb-4">
                         The one-dimensional (1D) Ising model is a fundamental framework in statistical mechanics that provides deep insights into cooperative behavior in many-body systems...
                     </p>
-                    <a href="#" target="_blank" class="text-primary hover:text-indigo-700 font-medium text-sm transition duration-300">
+                    <a href="POSTER VSSCM-2.pdf" target="_blank" class="text-primary hover:text-indigo-700 font-medium text-sm transition duration-300">
                         Details &rarr;
                     </a>
                 </div>
@@ -277,7 +332,7 @@
                     <p class="text-gray-600 mb-4">
                         The two-dimensional (2D) Ising model with next-nearest-neighbor (NNN) interactions extends the classical Ising framework by incorporating coupling beyond adjacent lattice sites...
                     </p>
-                    <a href="#" target="_blank" class="text-primary hover:text-indigo-700 font-medium text-sm transition duration-300">
+                    <a href="HORIZON2025_Huy.pdf" target="_blank" class="text-primary hover:text-indigo-700 font-medium text-sm transition duration-300">
                         Details &rarr;
                     </a>
                 </div>
@@ -383,3 +438,4 @@
     </script>
 </body>
 </html>
+
