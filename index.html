@@ -190,10 +190,14 @@
 
                         
                         document.addEventListener('click', (e) => {
-                            if (!menu1.contains(e.target) && !btn1.contains(e.target) && !cvBtn1.contains(e.target)) {
-                            menu1.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-                            btn1.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-                            cvBtn1.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                            const isClickOutside = !menu1.contains(e.target) && !btn1.contains(e.target) && !cvBtn1.contains(e.target);
+
+                            const isClickMenuLink = menu1.contains(e.target) && e.target.closest('a, button');
+                        
+                            if (isClickOutside || isClickMenuLink) {
+                                menu1.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                                btn1.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                                cvBtn1.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
                             }
                         });
                     </script>
@@ -205,7 +209,7 @@
                                 opacity-0 scale-95 pointer-events-none
                                 transition-all duration-300 ease-in-out">
 
-                    <a href="https://www.instagram.com/thehuyvoxnd/" 
+                    <a href="https://www.instagram.com/15.vnh/" 
                         class="whitespace-nowrap px-6 py-2 bg-white/30 backdrop-blur-md border border-white/20 
                                 rounded-full shadow-md hover:bg-white/40 transition">
                         Instagram
@@ -252,11 +256,8 @@
                         document.addEventListener('click', (e) => {
                             const isClickOutside = !menu.contains(e.target) && !btn.contains(e.target) && !cvBtn.contains(e.target);
 
-                            // Điều kiện 2: Click BÊN TRONG menu, nhưng trúng vào thẻ a hoặc button
-                            // (Sử dụng .closest để bắt được cả khi click vào icon hoặc text bên trong nút)
                             const isClickMenuLink = menu.contains(e.target) && e.target.closest('a, button');
                         
-                            // Nếu (Click ra ngoài) HOẶC (Click vào link/button trong menu) -> Đóng menu
                             if (isClickOutside || isClickMenuLink) {
                                 menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
                                 btn.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
@@ -509,6 +510,7 @@
     </script>
 </body>
 </html>
+
 
 
 
